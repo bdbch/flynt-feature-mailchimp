@@ -10,9 +10,17 @@
 composer require "drewm/mailchimp-api": "^2.5",
 ```
 
-2. Clone or download this folder into your Flynt themes feature folder. For example: `/path/to/your/flynt-project/web/app/themes/your-theme/Features/Mailchimp`
+2. Clone or download this folder into your Flynt themes feature folder. For example:
 
-3. Add the following line to your projects Init.php in `theme/lib`: `add_theme_support('flynt-mailchimp');`
+```
+/path/to/your/flynt-project/web/app/themes/your-theme/Features/Mailchimp
+```
+
+3. Add the following line to your projects Init.php in `theme/lib`:
+
+```
+add_theme_support('flynt-mailchimp');
+```
 
 4. Add the Mailchimp API Key in the Feature option page
 
