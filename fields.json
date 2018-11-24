@@ -1,0 +1,11 @@
+{
+  "globalOptions": [
+    {
+      "label": "API Key",
+      "name": "apiKey",
+      "type": "text",
+      "instructions": "Can be aquired here: https://us19.admin.mailchimp.com/account/api/",
+      "required": 1
+    }
+  ]
+}
