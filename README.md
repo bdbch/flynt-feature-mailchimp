@@ -36,6 +36,6 @@ use Flynt\Features\Mailchimp\Instance;
 function subscribeUserToNL($listId, $email)
 {
   $MailchimpInstance = new Instance();
-  $result = $MailchimpInstance->SubscribeToList($listId, $email, 'pending');
+  $result = $MailchimpInstance->subscribeToList($listId, $email, 'pending');
 }
 ```
