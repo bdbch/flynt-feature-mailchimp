@@ -12,19 +12,19 @@ class Instance
     private $apiKey = false;
     private $translations = false;
 
-    public function __construct ()
+    public function __construct()
     {
         $apiKey = OptionPages::get('globalOptions', 'feature', 'mailchimp', 'apiKey');
         $this->apiKey = ($apiKey) ? $apiKey : false;
         $this->translations = $this->getTranslations();
 
-        if ($this->apiKey)
+        if ( $this->apiKey )
         {
             $this->Mailchimp = new MailChimp($this->apiKey);
         }
     }
 
-    private function getTranslations ()
+    private function getTranslations()
     {
         return [
             'errorEmailRequired' => $apiKey = OptionPages::get('translatableOptions', 'feature', 'mailchimp', 'errorEmailRequired'),
@@ -33,7 +33,7 @@ class Instance
         ];
     }
 
-    public function SubscribeToList ($id, $email, $status = 'pending')
+    public function subscribeToList($id, $email, $status = 'pending')
     {
         $data = [
             'email' => $email,
@@ -59,7 +59,7 @@ class Instance
             ]
         ]);
 
-        if (count($validator->errors))
+        if ( count($validator->errors) )
         {
             return [
                 'status' => 500,
