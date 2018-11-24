@@ -7,7 +7,7 @@
 1. Make sure to install the required composer packages
 
 ```
-composer require "drewm/mailchimp-api": "^2.5",
+composer require drewm/mailchimp-api bdbch/vivalidator
 ```
 
 2. Clone or download this folder into your Flynt themes feature folder. For example:
