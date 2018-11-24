@@ -18,8 +18,7 @@ class Instance
         $this->apiKey = ($apiKey) ? $apiKey : false;
         $this->translations = $this->getTranslations();
 
-        if ( $this->apiKey )
-        {
+        if ($this->apiKey) {
             $this->Mailchimp = new MailChimp($this->apiKey);
         }
     }
@@ -59,8 +58,7 @@ class Instance
             ]
         ]);
 
-        if ( count($validator->errors) )
-        {
+        if (count($validator->errors)) {
             return [
                 'status' => 500,
                 'messages' => $validator->errors
