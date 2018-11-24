@@ -9,14 +9,24 @@ use Vivalidator\Validator;
 class Instance {
     public $Mailchimp = false;
     private $apiKey = false;
+    private $translations = false;
 
     public function __construct () {
         $apiKey = OptionPages::get('globalOptions', 'feature', 'mailchimp', 'apiKey');
         $this->apiKey = ($apiKey) ? $apiKey : false;
+        $this->translations = $this->getTranslations();
 
         if ($this->apiKey) {
             $this->Mailchimp = new MailChimp($this->apiKey);
         }
+    }
+
+    private function getTranslations () {
+        return [
+            'errorEmailRequired' => $apiKey = OptionPages::get('translatableOptions', 'feature', 'mailchimp', 'errorEmailRequired'),
+            'errorEmailNotValid' => $apiKey = OptionPages::get('translatableOptions', 'feature', 'mailchimp', 'errorEmailNotValid'),
+            'errorSubscribing' => $apiKey = OptionPages::get('translatableOptions', 'feature', 'mailchimp', 'errorSubscribing')
+        ];
     }
 
     public function SubscribeToList ($id, $email, $status = 'pending') {
@@ -29,17 +39,17 @@ class Instance {
             'email' => [
                 [
                     'rule' => 'required',
-                    'error' => 'E-Mail-Adresse muss angegeben sein'
+                    'error' => $this->translations['errorEmailRequired']
                 ],
                 [
                     'rule' => 'email',
-                    'error' => 'E-Mail-Adresse muss valide sein'
+                    'error' => $this->translations['errorEmailNotValid']
                 ]
             ],
             'list' => [
                 [
                     'rule' => 'required',
-                    'error' => 'Es gab ein Problem beim Eintragen in den Newsletter'
+                    'error' => $this->translations['errorSubscribing']
                 ]
             ]
         ]);

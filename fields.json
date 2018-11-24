@@ -1,4 +1,27 @@
 {
+  "translatableOptions": [
+    {
+      "label": "Error Message: Email required",
+      "name": "errorEmailRequired",
+      "type": "text",
+      "required": 1,
+      "default_value": "The email address is required"
+    },
+    {
+      "label": "Error Message: Email not valid",
+      "name": "errorEmailNotValid",
+      "type": "text",
+      "required": 1,
+      "default_value": "The email needs to be a valid email address"
+    },
+    {
+      "label": "Error Message: Problem while subscribing",
+      "name": "errorSubscribing",
+      "type": "text",
+      "required": 1,
+      "default_value": "There was an error while subscribing to the newsletter"
+    }
+  ],
   "globalOptions": [
     {
       "label": "API Key",
